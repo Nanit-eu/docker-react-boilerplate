@@ -6,8 +6,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/js/bootstrap';
 
-ReactDOM.render(
-  <React.StrictMode>
+ReactDOM.render(<React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')

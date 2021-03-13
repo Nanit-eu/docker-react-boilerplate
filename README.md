@@ -14,7 +14,13 @@ HTTPS=true yarn start
 Testing & coverage :
 ```
 yarn test
+
 yarn coverage
+
+SCREENSHOT_MODE=local jest -c jest.screenshot.config.js 
+yarn test --watchAll
+ps aux |grep Chromium|grep puppeteer| awk {'print $2'}| xargs -n 1 kill -9
+
 ```
 
 Docker

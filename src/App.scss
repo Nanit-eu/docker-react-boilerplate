@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #730943;
+  background-color: #097339;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -46,4 +46,4 @@ $theme-colors: (
         "primary": #ae3274,
         "danger": #36c6ff
 );
-@import "~bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
