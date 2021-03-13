@@ -25,6 +25,22 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn ci
-    - run: yarn build --if-present
-    - run: SNAPSHOT=no yarn test --coverage
+    - name: Cache node modules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        # yarn cache files are stored in `~/.yarn` on Linux/macOS
+        path: ~/.yarn
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: Install Dependencies
+      run: yarn ci
+    - name: Build
+      run: yarn build --if-present
+    - name: Test (no snapshot)
+      run: SNAPSHOT=no yarn test --coverage
