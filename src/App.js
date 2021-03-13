@@ -30,13 +30,13 @@ function App() {
         <div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" data-testid="menu-home">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about" data-testid="menu-about">About</Link>
             </li>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/dashboard" data-testid="menu-dashboard">Dashboard</Link>
             </li>
           </ul>
 
@@ -51,13 +51,13 @@ function App() {
         */}
           <Switch>
             <Route exact path="/">
-              Home
+              Home content !
             </Route>
             <Route path="/about">
-              About
+              About content !
             </Route>
             <Route path="/dashboard">
-              Dashboard
+              Dashboard content !
             </Route>
           </Switch>
         </div>

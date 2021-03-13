@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/Nanit-eu/docker-react-boilerplate/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/Nanit-eu/docker-react-boilerplate/actions/workflows/node.js.yml)
+
 
 Create app
 ```
