@@ -12,14 +12,15 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
-describe('Counter', () => {
+if (process.env.SNAPSHOT !=='no'){
+describe('Snapshot testing', () => {
   test('snapshot renders', () => {
     const component = renderer.create(<App/>);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
-
+}
 test('renders home at start', () => {
   const container = render(<App />);
   expect(screen.getByText('Learn React')).toBeInTheDocument();
