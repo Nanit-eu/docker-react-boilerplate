@@ -22,7 +22,7 @@ describe('Snapshot testing', () => {
 });
 }
 test('renders home at start', () => {
-  const container = render(<App />);
+  render(<App />);
   expect(screen.getByText('Learn React')).toBeInTheDocument();
 
   const linkElement1 = screen.getByText(/learn react/i);
@@ -32,8 +32,8 @@ test('renders home at start', () => {
 
 });
 
-test('renders menu links and these link are linking', () => {
-  const container = render(<App />);
+  test('renders menu links and these link are linking', () => {
+  render(<App />);
   const menuAboutLink = screen.getByTestId('menu-about');
   expect(menuAboutLink).toBeInTheDocument();
   menuAboutLink.click();
