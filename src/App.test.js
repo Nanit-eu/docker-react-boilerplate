@@ -1,53 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render, screen } from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
 import App from './App';
 
-
-
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+    const div = document.createElement('div');
+    ReactDOM.render(<App/>, div);
 });
 
-if (process.env.SNAPSHOT !=='no'){
-describe('Snapshot testing', () => {
-  test('snapshot renders', () => {
-    const component = renderer.create(<App/>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
+if (process.env.SNAPSHOT !== 'no') {
+    describe('Snapshot testing', () => {
+        test('snapshot renders', () => {
+            const component = renderer.create(<App/>);
+            let tree = component.toJSON();
+            expect(tree).toMatchSnapshot();
+        });
+    });
 }
-test('renders home at start', () => {
-  render(<App />);
-  expect(screen.getByText('Learn React')).toBeInTheDocument();
+describe('Home page is complete', () => {
 
-  const linkElement1 = screen.getByText(/learn react/i);
-  expect(linkElement1).toBeInTheDocument();
-  const linkElement2 = screen.getByText(/Home content/i);
-  expect(linkElement2).toBeInTheDocument();
-
-});
-
-  test('renders menu links and these link are linking', () => {
-  render(<App />);
-  const menuAboutLink = screen.getByTestId('menu-about');
-  expect(menuAboutLink).toBeInTheDocument();
-  menuAboutLink.click();
-
-  const linkElement3 = screen.getByText(/About content/i);
-  expect(linkElement3).toBeInTheDocument();
+    test('Show HomeHeader', () => {
+        render(<App/>);
+        expect(screen.getByTestId('heading')).toBeInTheDocument();
+    });
 
 
-  const menuDashboardLink = screen.getByTestId('menu-dashboard');
-  expect(menuDashboardLink).toBeInTheDocument();
-  menuDashboardLink.click();
+    test('menu-about link exists', () => {
+        render(<App/>);
+        const menuAboutLink = screen.getByTestId('menu-about');
+        expect(menuAboutLink).toBeInTheDocument();
+    });
 
-  const linkElement4 = screen.getByText(/Dashboard content/i);
-  expect(linkElement4).toBeInTheDocument();
-
+    test('Footer', () => {
+        render(<App/>);
+        const menuAboutLink = screen.getByTestId('footer');
+        expect(menuAboutLink).toBeVisible();
+        expect(menuAboutLink).toBeInTheDocument();
+    });
 
 });
+
+

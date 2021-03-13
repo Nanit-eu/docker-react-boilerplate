@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #730943;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+#page{
+  min-height: 100vh;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +40,10 @@
     transform: rotate(360deg);
   }
 }
+
+$border-radius: 50px;
+$theme-colors: (
+        "primary": #ae3274,
+        "danger": #36c6ff
+);
+@import "~bootstrap/scss/bootstrap";

@@ -1,5 +1,5 @@
 export default function Dashboard() {
-    return <>
+    return <div  className="container" id="Dashboard" data-testid="page-dashboard" >
         Dashboard content !
-    </>
+    </div>
 }
