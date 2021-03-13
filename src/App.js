@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  BrowserRouter as Router
 } from "react-router-dom";
 
 import logo from './logo.svg';
 import './App.css';
+import Navbar from "./Component/Navbar";
+import Page from "./Page";
 
 function App() {
   return (
@@ -27,40 +26,8 @@ function App() {
         </a>
       </header>
       <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/" data-testid="menu-home">Home</Link>
-            </li>
-            <li>
-              <Link to="/about" data-testid="menu-about">About</Link>
-            </li>
-            <li>
-              <Link to="/dashboard" data-testid="menu-dashboard">Dashboard</Link>
-            </li>
-          </ul>
-
-          <hr />
-
-          {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
-          <Switch>
-            <Route exact path="/">
-              Home content !
-            </Route>
-            <Route path="/about">
-              About content !
-            </Route>
-            <Route path="/dashboard">
-              Dashboard content !
-            </Route>
-          </Switch>
-        </div>
+          <Navbar/>
+          <Page/>
       </Router>
       <hr/>
       <footer>
