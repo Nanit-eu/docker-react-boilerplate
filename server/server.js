@@ -48,7 +48,7 @@ app.use(bodyParser.json());
 
 app.post('/api/send_data', (req, res) => {
     console.log(req.body)
-    res.send(JSON.stringify(req.body));
+    res.send(JSON.stringify({default:'default'}));
 });
 
 app.listen(PORT, HOST);
