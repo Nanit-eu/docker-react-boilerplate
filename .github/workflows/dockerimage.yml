@@ -2,6 +2,12 @@ name: Publish Docker image
 on:
   release:
     types: [published]
+  workflow_run:
+    workflows: [ "Node.js CI" ]
+    branches: [ main ]
+    types:
+      - completed
+      - requested
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
